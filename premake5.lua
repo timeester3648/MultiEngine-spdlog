@@ -13,9 +13,12 @@ project "spdlog"
 		"./**.cpp"
 	}
 
-	includedirs {
-		"%{prj.name}/include",
-		
+	excludes {
+		"./tests/**.cpp",
+		"./example/**.cpp"
+	}
+
+	includedirs {		
 		"%{IncludeDir.fmt}",
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.spdlog}",
