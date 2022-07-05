@@ -14,6 +14,7 @@ project "spdlog"
 	}
 
 	excludes {
+		"./bench/**.cpp",
 		"./tests/**.cpp",
 		"./example/**.cpp"
 	}

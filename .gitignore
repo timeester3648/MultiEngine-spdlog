@@ -90,3 +90,9 @@ cmake-build-*/
 # macos
 *.DS_store
 *.xcodeproj/
+
+# exclude project files
+**.sln
+**.vcxproj
+**.vcxproj.user
+**.vcxproj.filters
