@@ -3,14 +3,8 @@
 
 #pragma once
 
-<<<<<<< HEAD
 #include <spdlog/tweakme.h>
 #include <spdlog/details/null_mutex.h>
-=======
-#define SPDLOG_VERSION "0.17.0"
-
-#include "tweakme.h"
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 
 #include <atomic>
 #include <chrono>
@@ -280,34 +274,12 @@ enum class pattern_time_type
 //
 // Log exception
 //
-<<<<<<< HEAD
 class SPDLOG_API spdlog_ex : public std::exception
 {
 public:
     explicit spdlog_ex(std::string msg);
     spdlog_ex(const std::string &msg, int last_errno);
     const char *what() const SPDLOG_NOEXCEPT override;
-=======
-class spdlog_ex : public std::exception
-{
-public:
-    explicit spdlog_ex(std::string msg)
-        : _msg(std::move(msg))
-    {
-    }
-
-    spdlog_ex(const std::string &msg, int last_errno)
-    {
-        fmt::MemoryWriter writer;
-        fmt::format_system_error(writer, last_errno, msg);
-        _msg = writer.str();
-    }
-
-    const char *what() const SPDLOG_NOEXCEPT override
-    {
-        return _msg.c_str();
-    }
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 
 private:
     std::string msg_;
@@ -368,7 +340,6 @@ std::unique_ptr<T> make_unique(Args &&... args)
 }
 #endif
 
-<<<<<<< HEAD
 // to avoid useless casts (see https://github.com/nlohmann/json/issues/2893#issuecomment-889152324)
 template<typename T, typename U, enable_if_t<!std::is_same<T, U>::value, int> = 0>
 constexpr T conditional_static_cast(U value)
@@ -383,17 +354,6 @@ constexpr T conditional_static_cast(U value)
 }
 
 } // namespace details
-=======
-#define SPDLOG_CATCH_AND_HANDLE                                                                                                            \
-    catch (const std::exception &ex)                                                                                                       \
-    {                                                                                                                                      \
-        _err_handler(ex.what());                                                                                                           \
-    }                                                                                                                                      \
-    catch (...)                                                                                                                            \
-    {                                                                                                                                      \
-        _err_handler("Unknown exeption in logger");                                                                                        \
-    }
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 } // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
