@@ -14,6 +14,7 @@ if(PkgConfig_FOUND)
 endif()
 
 set(SPDLOG_UTESTS_SOURCES
+<<<<<<< HEAD
     test_file_helper.cpp
     test_file_logging.cpp
     test_daily_logger.cpp
@@ -22,6 +23,16 @@ set(SPDLOG_UTESTS_SOURCES
     test_pattern_formatter.cpp
     test_async.cpp
     test_registry.cpp
+=======
+    errors.cpp
+    file_helper.cpp
+    file_log.cpp
+    test_misc.cpp   
+	test_pattern_formatter.cpp
+    test_async.cpp
+    includes.h
+    registry.cpp
+>>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
     test_macros.cpp
     utils.cpp
     main.cpp

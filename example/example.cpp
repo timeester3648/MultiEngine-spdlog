@@ -151,6 +151,7 @@ void load_levels_example()
 #include "spdlog/async.h"
 void async_example()
 {
+<<<<<<< HEAD
     // Default thread pool settings can be modified *before* creating the async logger:
     // spdlog::init_thread_pool(32768, 1); // queue with max 32k items 1 backing thread.
     auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
@@ -158,6 +159,12 @@ void async_example()
     // auto async_file = spdlog::create_async<spdlog::sinks::basic_file_sink_mt>("async_file_logger", "logs/async_log.txt");
 
     for (int i = 1; i < 101; ++i)
+=======
+    size_t q_size = 4096;
+    spdlog::set_async_mode(q_size);
+    auto async_file = spd::daily_logger_st("async_file_logger", "logs/async_log.txt");
+    for (int i = 0; i < 100; ++i)
+>>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
     {
         async_file->info("Async message #{}", i);
     }

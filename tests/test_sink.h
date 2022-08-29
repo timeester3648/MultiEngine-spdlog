@@ -7,10 +7,15 @@
 
 #include "spdlog/details/null_mutex.h"
 #include "spdlog/sinks/base_sink.h"
+<<<<<<< HEAD
 #include "spdlog/fmt/fmt.h"
 #include <chrono>
 #include <mutex>
 #include <thread>
+=======
+
+#include <mutex>
+>>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 
 namespace spdlog {
 namespace sinks {
@@ -18,6 +23,7 @@ namespace sinks {
 template<class Mutex>
 class test_sink : public base_sink<Mutex>
 {
+<<<<<<< HEAD
     const size_t lines_to_save = 100;
 
 public:
@@ -70,6 +76,31 @@ protected:
     size_t flush_counter_{0};
     std::chrono::milliseconds delay_{std::chrono::milliseconds::zero()};
     std::vector<std::string> lines_;
+=======
+public:
+    size_t msg_counter()
+    {
+        return msg_counter_;
+    }
+
+    size_t flushed_msg_counter()
+    {
+        return flushed_msg_counter_;
+    }
+
+protected:
+    void _sink_it(const details::log_msg &) override
+    {
+        msg_counter_++;
+    }
+
+    void _flush() override
+    {
+        flushed_msg_counter_ += msg_counter_;
+    }
+    size_t msg_counter_{0};
+    size_t flushed_msg_counter_{0};
+>>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 };
 
 using test_sink_mt = test_sink<std::mutex>;
