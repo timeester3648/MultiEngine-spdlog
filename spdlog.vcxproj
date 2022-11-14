@@ -202,12 +202,14 @@
     <ClInclude Include="include\spdlog\fmt\bundled\ostream.h" />
     <ClInclude Include="include\spdlog\fmt\bundled\printf.h" />
     <ClInclude Include="include\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="include\spdlog\fmt\bundled\std.h" />
     <ClInclude Include="include\spdlog\fmt\bundled\xchar.h" />
     <ClInclude Include="include\spdlog\fmt\chrono.h" />
     <ClInclude Include="include\spdlog\fmt\compile.h" />
     <ClInclude Include="include\spdlog\fmt\fmt.h" />
     <ClInclude Include="include\spdlog\fmt\ostr.h" />
     <ClInclude Include="include\spdlog\fmt\ranges.h" />
+    <ClInclude Include="include\spdlog\fmt\std.h" />
     <ClInclude Include="include\spdlog\fmt\xchar.h" />
     <ClInclude Include="include\spdlog\formatter.h" />
     <ClInclude Include="include\spdlog\fwd.h" />
@@ -258,10 +260,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\async.cpp" />
+    <ClCompile Include="src\bundled_fmtlib_format.cpp" />
     <ClCompile Include="src\cfg.cpp" />
     <ClCompile Include="src\color_sinks.cpp" />
     <ClCompile Include="src\file_sinks.cpp" />
-    <ClCompile Include="src\fmt.cpp" />
     <ClCompile Include="src\spdlog.cpp" />
     <ClCompile Include="src\stdout_sinks.cpp" />
   </ItemGroup>

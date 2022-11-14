@@ -201,6 +201,9 @@
     <ClInclude Include="include\spdlog\fmt\bundled\ranges.h">
       <Filter>include\spdlog\fmt\bundled</Filter>
     </ClInclude>
+    <ClInclude Include="include\spdlog\fmt\bundled\std.h">
+      <Filter>include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
     <ClInclude Include="include\spdlog\fmt\bundled\xchar.h">
       <Filter>include\spdlog\fmt\bundled</Filter>
     </ClInclude>
@@ -217,6 +220,9 @@
       <Filter>include\spdlog\fmt</Filter>
     </ClInclude>
     <ClInclude Include="include\spdlog\fmt\ranges.h">
+      <Filter>include\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="include\spdlog\fmt\std.h">
       <Filter>include\spdlog\fmt</Filter>
     </ClInclude>
     <ClInclude Include="include\spdlog\fmt\xchar.h">
@@ -365,6 +371,9 @@
     <ClCompile Include="src\async.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\bundled_fmtlib_format.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\cfg.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -372,9 +381,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\file_sinks.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\fmt.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\spdlog.cpp">

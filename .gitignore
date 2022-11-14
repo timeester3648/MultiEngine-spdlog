@@ -1,9 +1,6 @@
 # Auto generated files
-<<<<<<< HEAD
 [Dd]ebug/
 [Rr]elease/
-=======
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 build/*
 *.slo
 *.lo
@@ -78,7 +75,6 @@ spdlogConfigVersion.cmake
 
 # idea
 .idea/
-<<<<<<< HEAD
 cmake-build-*/
 *.db
 *.ipch
@@ -100,8 +96,6 @@ cmake-build-*/
 **.vcxproj
 **.vcxproj.user
 **.vcxproj.filters
-=======
 
 # vscode
 .vscode/
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
