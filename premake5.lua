@@ -23,12 +23,8 @@ project "spdlog"
 		"%{IncludeDir.fmt}",
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.vulkan_sdk}",
+		"%{IncludeDir.vulkan_headers}",
 		"%{IncludeDir.general_includes}"
-	}
-
-	defines {
-		"SPDLOG_COMPILED_LIB"
 	}
 
  	filter "configurations:Debug"
