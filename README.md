@@ -16,15 +16,9 @@ $ cmake .. && make -j
    see example [CMakeLists.txt](https://github.com/gabime/spdlog/blob/v1.x/example/CMakeLists.txt) on how to use.
 
 ## Platforms
-<<<<<<< HEAD
- * Linux, FreeBSD, OpenBSD, Solaris, AIX
- * Windows (msvc 2013+, cygwin)
- * macOS (clang 3.5+)
-=======
  * Linux, FreeBSD, Solaris, AIX
  * Windows (vc 2013+, cygwin)
  * Mac OSX (clang 3.5+)
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
  * Android
 
 ## Package managers:
@@ -43,16 +37,10 @@ $ cmake .. && make -j
 
 
 ## Features
-<<<<<<< HEAD
-* Very fast (see [benchmarks](#benchmarks) below).
-* Headers only or compiled
-* Feature rich formatting, using the excellent [fmt](https://github.com/fmtlib/fmt) library.
-=======
 * Very fast - performance is the primary goal (see [benchmarks](#benchmarks) below).
 * Headers only, just copy and use.
 * Feature rich [call style](#usage-example) using the excellent [fmt](https://github.com/fmtlib/fmt) library.
 * Optional printf syntax support.
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 * Asynchronous mode (optional)
 * [Custom](https://github.com/gabime/spdlog/wiki/3.-Custom-formatting) formatting.
 * Multi/Single threaded loggers.
@@ -70,9 +58,6 @@ $ cmake .. && make -j
  
 ## Usage samples
 
-<<<<<<< HEAD
-#### Basic usage
-=======
 
 
 ## Benchmarks
@@ -102,7 +87,6 @@ Time needed to log 1,000,000 lines in asynchronous mode, i.e. the time it takes 
 
 
 ## Usage Example
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 ```c++
 #include "spdlog/spdlog.h"
 
@@ -285,19 +269,11 @@ void multi_sink_example()
 #include "spdlog/sinks/basic_file_sink.h"
 void async_example()
 {
-<<<<<<< HEAD
-    // default thread pool settings can be modified *before* creating the async logger:
-    // spdlog::init_thread_pool(8192, 1); // queue with 8k items and 1 backing thread.
-    auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
-    // alternatively:
-    // auto async_file = spdlog::create_async<spdlog::sinks::basic_file_sink_mt>("async_file_logger", "logs/async_log.txt");   
-=======
     size_t q_size = 4096; 
     spd::set_async_mode(q_size);
     auto async_file = spd::daily_logger_st("async_file_logger", "logs/async_log.txt");
     for (int i = 0; i < 100; ++i)
         async_file->info("Async message #{}", i);
->>>>>>> dea6bb1085466370ed6d629b4d462f299db75958
 }
 
 ```
