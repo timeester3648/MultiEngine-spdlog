@@ -9,14 +9,12 @@ project "spdlog"
 	inlining "Auto"
 
 	files {
-		"./**.h",
-		"./**.cpp"
+		"./include/**.h",
+		"./src/**.cpp"
 	}
 
 	excludes {
-		"./bench/**.cpp",
-		"./tests/**.cpp",
-		"./example/**.cpp"
+		"./src/bundled_fmtlib_format.cpp"
 	}
 
 	includedirs {		
