@@ -5,6 +5,7 @@ void main(MultiBuild::Workspace& workspace) {
 	project.name("spdlog");
 	properties.binary_object_kind(MultiBuild::BinaryObjectKind::eStaticLib);
 	project.license("./LICENSE");
+	properties.tags("utf8");
 
 	properties.project_includes({
 		"fmt"
