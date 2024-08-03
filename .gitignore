@@ -97,6 +97,10 @@ cmake-build-*/
 # vscode
 .vscode/
 
+/.vs
+/out/build
+/CMakeSettings.json
+
 # exclude project files
 **.sln
 **.vcxproj
