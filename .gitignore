@@ -72,9 +72,12 @@ install_manifest.txt
 /tests/logs/*
 spdlogConfig.cmake
 spdlogConfigVersion.cmake
+compile_commands.json
 
 # idea
 .idea/
+.cache/
+.vscode/
 cmake-build-*/
 *.db
 *.ipch
@@ -91,11 +94,11 @@ cmake-build-*/
 *.DS_store
 *.xcodeproj/
 
+# vscode
+.vscode/
+
 # exclude project files
 **.sln
 **.vcxproj
 **.vcxproj.user
 **.vcxproj.filters
-
-# vscode
-.vscode/
