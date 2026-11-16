@@ -16,6 +16,10 @@ std::string log_info(const T &what, spdlog::level::level_enum logger_level = spd
     return oss.str().substr(0, oss.str().length() - strlen(spdlog::details::os::default_eol));
 }
 
+TEST_CASE("async zero queue size", "[async]") {
+    REQUIRE_THROWS_AS(spdlog::details::thread_pool(0, 1), spdlog::spdlog_ex);
+}
+
 TEST_CASE("basic async test ", "[async]") {
     auto test_sink = std::make_shared<spdlog::sinks::test_sink_mt>();
     size_t queue_size = 128;
@@ -209,6 +213,7 @@ TEST_CASE("to_file multi-workers", "[async]")
     require_message_count(TEST_FILENAME, messages);
 }
 
+#ifndef SPDLOG_NO_EXCEPTIONS
 TEST_CASE("bad_tp", "[async]") {
     auto test_sink = std::make_shared<spdlog::sinks::test_sink_mt>();
     std::shared_ptr<spdlog::details::thread_pool> const empty_tp;
@@ -216,3 +221,4 @@ TEST_CASE("bad_tp", "[async]") {
     logger->info("Please throw an exception");
     REQUIRE(test_sink->msg_counter() == 0);
 }
+#endif  // SPDLOG_NO_EXCEPTIONS

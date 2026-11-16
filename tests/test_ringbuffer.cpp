@@ -1,9 +1,11 @@
 #include "includes.h"
 #include "spdlog/sinks/ringbuffer_sink.h"
 
+#ifndef SPDLOG_NO_EXCEPTIONS
 TEST_CASE("ringbuffer invalid size", "[ringbuffer]") {
     REQUIRE_THROWS_AS(spdlog::sinks::ringbuffer_sink_mt(0), spdlog::spdlog_ex);
 }
+#endif  // SPDLOG_NO_EXCEPTIONS
 
 TEST_CASE("ringbuffer stores formatted messages", "[ringbuffer]") {
     spdlog::sinks::ringbuffer_sink_st sink(3);
@@ -75,4 +77,16 @@ TEST_CASE("ringbuffer buffers source_loc strings", "[ringbuffer]") {
     REQUIRE(formatted[0] ==
             spdlog::fmt_lib::format("dynamic_source.cpp:123 dynamic_function payload{}",
                                     default_eol));
+}
+
+TEST_CASE("ringbuffer raw messages survive copy self-assignment", "[ringbuffer]") {
+    spdlog::sinks::ringbuffer_sink_st sink(2);
+    sink.log(spdlog::details::log_msg{"test", spdlog::level::info, "first"});
+    sink.log(spdlog::details::log_msg{"test", spdlog::level::info, "other"});
+    auto messages = sink.last_raw();
+    REQUIRE(messages.size() == 2);
+    const auto& source = messages.front();
+    messages.front() = source;
+    messages.back() = source;
+    REQUIRE(std::string(messages.back().payload.data(), messages.back().payload.size()) == "first");
 }
